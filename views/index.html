@@ -1,60 +1,123 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>TP Sécu</title>
-</head>
-<body>
-    <main>
-        <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-                <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-                    <form method="post" action="/" class="max-w-md mx-auto">
-                        <div class="flex items-center space-x-5">
-                            <div class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono">i</div>
-                            <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
-                                <h2 class="leading-relaxed">Inscription</h2>
-                                <p class="text-sm text-gray-500 font-normal leading-relaxed">Nous avons besoin de quelques informations pour mieux vous connaitre.</p>
-                            </div>
-                        </div>
-                        <div class="divide-y divide-gray-200">
-                            <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                                <div class="flex items-center space-x-4">
-                                    <div class="flex flex-col">
-                                        <label for="lastname" class="leading-loose">Nom</label>
-                                        <input id="lastname" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="Doe">
-                                    </div>
-                                    <div class="flex flex-col">
-                                        <label for="firstname" class="leading-loose">Prénom</label>
-                                        <input id="firstname" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="John">
-                                    </div>
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="birthdate" class="leading-loose">Date de naissance</label>
-                                    <input id="birthdate" type="date" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600">
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="email" class="leading-loose">E-mail</label>
-                                    <input id="email" type="email" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="john.doe@email.fr">
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="phone" class="leading-loose">Téléphone</label>
-                                    <input id="phone" type="tel" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="0123456789">
-                                </div>
-                                <div class="flex flex-col">
-                                    <label for="address" class="leading-loose">Adresse postale</label>
-                                    <input id="address" type="text" class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" placeholder="1 rue des sapins 35000 Rennes">
-                                </div>
-                            </div>
-                            <div class="pt-4 flex items-center space-x-4">
-                                <input type="submit" class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none cursor-pointer" value="Créer votre compte" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+		<title>TP Sécu</title>
+	</head>
+	<body>
+		<main>
+			<div
+				class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12"
+			>
+				<div class="relative py-3 sm:max-w-xl sm:mx-auto">
+					<div
+						class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+					>
+						<form method="post" action="/register" class="max-w-md mx-auto">
+							<div class="flex items-center space-x-5">
+								<div
+									class="h-14 w-14 bg-yellow-200 rounded-full flex flex-shrink-0 justify-center items-center text-yellow-500 text-2xl font-mono"
+								>
+									i
+								</div>
+								<div
+									class="block pl-2 font-semibold text-xl self-start text-gray-700"
+								>
+									<h2 class="leading-relaxed">Inscription</h2>
+									<p class="text-sm text-gray-500 font-normal leading-relaxed">
+										Nous avons besoin de quelques informations pour mieux vous
+										connaitre.
+									</p>
+								</div>
+							</div>
+							<div class="divide-y divide-gray-200">
+								<div
+									class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
+								>
+									<div class="flex items-center space-x-4">
+										<div class="flex flex-col">
+											<label for="lastname" class="leading-loose">Nom</label>
+											<input
+												id="lastname"
+												name="lastname"
+												type="text"
+												class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+												placeholder="Doe"
+											/>
+										</div>
+										<div class="flex flex-col">
+											<label for="firstname" class="leading-loose"
+												>Prénom</label
+											>
+											<input
+												id="firstname"
+												name="firstname"
+												type="text"
+												class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+												placeholder="John"
+											/>
+										</div>
+									</div>
+									<div class="flex flex-col">
+										<label for="birthdate" class="leading-loose"
+											>Date de naissance</label
+										>
+										<input
+											id="birthdate"
+											name="birthdate"
+											type="date"
+											class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+										/>
+									</div>
+									<div class="flex flex-col">
+										<label for="email" class="leading-loose">E-mail</label>
+										<input
+											id="email"
+											name="email"
+											type="email"
+											class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+											placeholder="john.doe@email.fr"
+										/>
+									</div>
+									<div class="flex flex-col">
+										<label for="phone" class="leading-loose">Téléphone</label>
+										<input
+											id="phone"
+											name="phone"
+											type="tel"
+											class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+											placeholder="0123456789"
+										/>
+									</div>
+									<div class="flex flex-col">
+										<label for="address" class="leading-loose"
+											>Adresse postale</label
+										>
+										<input
+											id="address"
+											name="address"
+											type="text"
+											class="px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600"
+											placeholder="1 rue des sapins 35000 Rennes"
+										/>
+									</div>
+								</div>
+								<div class="pt-4 flex items-center space-x-4">
+									<input
+										type="submit"
+										class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none cursor-pointer"
+										value="Créer votre compte"
+									/>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>

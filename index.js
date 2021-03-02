@@ -11,8 +11,15 @@ app.get('/', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-	const { firstname, lastname, birthdate, address, mail, phone } = req.body;
-	if (!firstname || !lastname || !birthdate || !address || !mail || !phone)
+	const { firstname, lastname, birthdate, address, email, phone } = req.body;
+	if (
+		!firstname ||
+		!lastname ||
+		birthdate.length === 0 ||
+		!address ||
+		!email ||
+		!phone
+	)
 		res.status(403).json('missing body parameters');
 
 	res.status(201).json('It works');
