@@ -1,0 +1,32 @@
+version: "2"
+services:
+  node:
+    build: .
+
+  nginx:
+    build: ./nginx/
+    depends_on:
+      - node
+    ports:
+      - "5100:5100"
+
+  mariadb:
+    image: mariadb:10.4
+    restart: always
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=secu
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8000:80
+    environment:
+      - PMA_HOST=mariadb
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb-data:
