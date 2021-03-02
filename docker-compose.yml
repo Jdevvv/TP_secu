@@ -1,0 +1,10 @@
+version: "2"
+services:
+  node:
+    build: .
+  nginx:
+    build: ./nginx/
+    depends_on:
+      - node
+    ports:
+      - "5100:5100"

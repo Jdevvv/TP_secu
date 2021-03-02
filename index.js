@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'));
 
-app.get('/', (req, res) => {
+app.get('/hello', (req, res) => {
 	res.send('Hello World!');
 });
 
