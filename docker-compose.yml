@@ -1,0 +1,34 @@
+version: "2"
+services:
+  node:
+    build: .
+
+  nginx:
+    build: ./nginx/
+    depends_on:
+      - node
+    ports:
+      - "5100:5100"
+
+  mariadb:
+    build:
+      context: .
+      dockerfile: ./mariadb/Dockerfile
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_SECU_PASSWORD=${MYSQL_SECU_PASSWORD}
+    env_file:
+      - ./.env
+
+  phpmyadmin:
+    build: ./pma/
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_ABSOLUTE_URI=/phpmyadmin/
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb-data:
