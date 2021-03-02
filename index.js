@@ -1,4 +1,5 @@
 const express = require('express');
+const knex = require('./database/index');
 const app = express();
 const port = 3000;
 
@@ -26,5 +27,5 @@ app.post('/register', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`listening on http://localhost:${port}`);
+	console.log(`listening on http://localhost:${port} 🚀`);
 });
