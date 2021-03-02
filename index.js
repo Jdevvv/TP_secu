@@ -20,9 +20,9 @@ app.post('/register', (req, res) => {
 		!email ||
 		!phone
 	)
-		res.status(403).json('missing body parameters');
+		res.status(403).redirect('/error.html');
 
-	res.status(201).json('It works');
+	res.status(201).redirect('/success.html');
 });
 
 app.listen(port, () => {
