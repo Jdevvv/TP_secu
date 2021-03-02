@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>TP Sécu</title>
+</head>
+<body>
+    <main>
+        <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+            <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+                <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                    <form method="post" action="/" class="max-w-md mx-auto">
+                        <div class="divide-y divide-gray-200">
+                            <div class="flex items-center space-x-5 pb-6">
+                                <div class="h-14 w-14 bg-red-200 rounded-full flex flex-shrink-0 justify-center items-center text-red-500 text-2xl font-mono">!</div>
+                                <div class="block pl-2 font-semibold text-xl self-start text-gray-700">
+                                    <h2 class="leading-relaxed">Quel dommage</h2>
+                                    <p class="text-sm text-gray-500 font-normal leading-relaxed">Une erreur s'est produite, tu peux essayé à nouveau si tu le souhaite.</p>
+                                </div>
+                            </div>
+                            <a href="/" class="pt-6 flex items-center space-x-4">
+                                <button type="submit" class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">Essayer à nouveau</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
