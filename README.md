@@ -18,6 +18,7 @@ exit
 ```
 
 You can see the app here : [http://localhost:5100/](http://localhost:5100/)
+
 You can see phpmyadmin here : [http://localhost:5100/phpmyadmin](http://localhost:5100/phpmyadmin)
 
 ## Single node app
