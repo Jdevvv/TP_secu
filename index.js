@@ -1,4 +1,6 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 const knex = require('./database/index');
 const app = express();
 const port = 3000;
@@ -7,7 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'));
 
-app.get('/hello', (req, res) => {
+app.get('/hello', async (req, res) => {
+	const test_req = await knex.select('*').from('user');
+
+	console.log(test_req);
+
 	res.send('Hello World!');
 });
 
