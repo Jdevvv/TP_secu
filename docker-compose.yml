@@ -9,6 +9,7 @@ services:
       - node
     ports:
       - "5100:5100"
+      - "443:443"
 
   mariadb:
     build:
