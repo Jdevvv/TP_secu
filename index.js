@@ -10,11 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'));
 
 app.get('/hello', async (req, res) => {
-	const test_req = await knex.select('*').from('user');
-
-	console.log(test_req);
-
-	res.send('Hello World!');
+	const test = knex.select('*').from('user');
+	console.log(test);
+	res.send(`Hello World: ${test}`);
 });
 
 app.post('/register', (req, res) => {
@@ -28,6 +26,8 @@ app.post('/register', (req, res) => {
 		!phone
 	)
 		res.status(403).redirect('/error.html');
+
+	knex('user').insert({ firstname, lastname });
 
 	res.status(201).redirect('/success.html');
 });
