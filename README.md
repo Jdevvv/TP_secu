@@ -1,13 +1,17 @@
 # TP_secu
 
-## Docker compose
+## Docker compose information
 - 2 NodeJS app connected to database with Knex.js
-- Nginx load balancing round robin with HTTPS
+- Nginx load balancing round robin with HTTPS and WAF (https://github.com/theonemule/docker-waf)
 - Mariadb with secu database and secu user with permission (SELECT, INSERT, UPDATE, DELETE) on unique database
 - Phpmyadmin
+- Env file use it to secure your password
+
+## Components model
+![image](https://user-images.githubusercontent.com/32338891/112132362-d0f05c80-8bca-11eb-8ba4-71916f58ee73.png)
 
 ### Start Docker Compose:
-Set up your .env file and run this command:
+Set up your .env file with .env.exemple and run this command:
 ```
 docker-compose up -d --scale node=2 --build
 ```
@@ -17,23 +21,31 @@ docker exec -ti tp_secu_mariadb_1 /bin/bash
 sh setup.sh
 exit
 ```
-
-You can see the app here : [http://localhost:5100/](http://localhost:5100/)
-
-You can see phpmyadmin here : [http://localhost:5100/phpmyadmin](http://localhost:5100/phpmyadmin)
-
-## Single node app
-Install dependencies:
-
+To have https certificate:
 ```
-npm install
+cd nginx
+apt-get install openssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt
 ```
 
-Run the app:
+You can see the app here : [https://localhost:5100/]https://localhost:5100/)
+
+You can see phpmyadmin here : [https://localhost:5100/phpmyadmin](https://localhost:5100/phpmyadmin)
+
+## Test
 
 ```
-npm run start
+https://localhost:5100/?parmas=%27%3Cscript%3Ealert(%22fdopjdf%22)%3C/script%3E
 ```
+The WAF detect and show in /var/log/modsec_audit.log
+![image](https://user-images.githubusercontent.com/32338891/112130292-a2718200-8bc8-11eb-82c1-f96aff9adf0f.png)
+
+In `modesecurity.conf` change DetectOnly to On
+```
+SecRuleEngine On
+```
+![image](https://user-images.githubusercontent.com/32338891/112130605-f2504900-8bc8-11eb-94fe-864a30cc961d.png)
+
 
 ## Bug
 ```
