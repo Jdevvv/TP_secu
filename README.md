@@ -2,10 +2,30 @@
 
 ## Docker compose information
 - 2 NodeJS app connected to database with Knex.js
-- Nginx load balancing round robin with HTTPS and WAF (https://github.com/theonemule/docker-waf)
-- Mariadb with secu database and secu user with permission (SELECT, INSERT, UPDATE, DELETE) on unique database
+- Nginx load balancing round robin with HTTPS and WAF
+- Mariadb
 - Phpmyadmin
-- Env file use it to secure your password
+- Env file 
+
+## Why use this configuration
+- Knex.js (http://knexjs.org/)
+   - Simple and light SQL builder allowing to easily make queries to the database while preventing SQL injections
+- Nginx load balancing round robin (http://nginx.org/en/docs/http/load_balancing.html)
+   - Easy to implement and conceptualize, round robin is the most widely deployed load balancing algorithm. Using this method, client requests are routed to available servers on a cyclical basis. Round robin server load balancing works best when servers have roughly identical computing capabilities and storage capacity.
+- WAF (https://github.com/theonemule/docker-waf)
+  - A Web Application Firewall (WAF) is a purpose-built firewall designed to protect against attacks common to web apps. One of the most widely used WAF’s is ModSecurity. Originally, it was written as a module for the Apache webserver, but it has since been ported to NGINX and IIS. ModSecurity protects against attacks by looking for:
+    - SQL Injection
+    - Insuring the content type matches the body data.
+    - Protection against malformed POST requests.
+    - HTTP Protocol Protection
+    - Real-time Blacklist Lookups
+    - HTTP Denial of Service Protections
+    - Generic Web Attack Protection
+     - Error Detection and Hiding
+- Mariadb (https://hub.docker.com/_/mariadb)
+  - Encrypt database and user with permission (SELECT, INSERT, UPDATE, DELETE) on unique database
+- Env file (https://docs.docker.com/compose/environment-variables/)
+   - Use it to secure your password with prevent bad handling with git
 
 ## Components model
 ![image](https://user-images.githubusercontent.com/32338891/112132362-d0f05c80-8bca-11eb-8ba4-71916f58ee73.png)
@@ -37,15 +57,15 @@ You can see phpmyadmin here : [https://localhost:5100/phpmyadmin](https://localh
 ```
 https://localhost:5100/?parmas=%27%3Cscript%3Ealert(%22fdopjdf%22)%3C/script%3E
 ```
-The WAF detect and show in /var/log/modsec_audit.log
+The WAF detect and show in `/var/log/modsec_audit.log`
+
 ![image](https://user-images.githubusercontent.com/32338891/112130292-a2718200-8bc8-11eb-82c1-f96aff9adf0f.png)
 
-In `modesecurity.conf` change DetectOnly to On
+In `modesecurity.conf` change `DetectOnly` to `On`
 ```
 SecRuleEngine On
 ```
 ![image](https://user-images.githubusercontent.com/32338891/112130605-f2504900-8bc8-11eb-94fe-864a30cc961d.png)
-
 
 ## Bug
 ```
