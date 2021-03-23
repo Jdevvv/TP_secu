@@ -1,9 +1,10 @@
 # TP_secu
 
 ## Docker compose
-- 2 Node app 
-- Nginx load balancing round robin 
-- Mariadb with secu database and secu user
+- 2 NodeJS app connected to database with Knex.js
+- Nginx load balancing round robin with HTTPS
+- Mariadb with secu database and secu user with permission (SELECT, INSERT, UPDATE, DELETE) on unique database
+- Phpmyadmin
 
 ### Start Docker Compose:
 Set up your .env file and run this command:
